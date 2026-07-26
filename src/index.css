@@ -1,0 +1,824 @@
+/* ───────────────────────────────────────────────────────────────────────
+   DESIGN TOKENS
+   A gallery walked at closing time: dark walls, brass rail light, and
+   museum wall-labels in mono type. Warm, not cold; dim, not flat black.
+   ─────────────────────────────────────────────────────────────────────── */
+:root {
+  --wall: #14131a;
+  --wall-soft: #1c1a22;
+  --panel: #201e26;
+  --line: #34303c;
+  --text: #ede9e1;
+  --text-muted: #9a95a6;
+  --text-faint: #6b6675;
+  --brass: #c9a24b;
+  --brass-dim: #8a7233;
+  --velvet: #7d3535;
+
+  --font-display: 'Fraunces', 'Iowan Old Style', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --container: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--wall);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ─────────────────────────── NAVBAR ─────────────────────────── */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(20, 19, 26, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 32px;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.brand-mark {
+  color: var(--brass);
+  font-size: 0.9em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.nav-links a {
+  position: relative;
+  color: var(--text-muted);
+  padding-bottom: 4px;
+  transition: color 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: var(--brass);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ─────────────────────────── FOOTER ─────────────────────────── */
+
+.footer {
+  border-top: 1px solid var(--line);
+  margin-top: 120px;
+  padding: 48px 0 40px;
+  color: var(--text-faint);
+  font-size: 0.85rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links a:hover {
+  color: var(--text-muted);
+}
+
+/* ─────────────────────────── HERO ─────────────────────────── */
+
+.hero {
+  padding: 96px 0 64px;
+  position: relative;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 20px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 1.05;
+  margin: 0 0 28px;
+  max-width: 16ch;
+}
+
+.hero-lede {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 46ch;
+  margin: 0 0 40px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 2px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  border: 1px solid var(--brass);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  background: transparent;
+}
+
+.btn-primary {
+  background: var(--brass);
+  color: #17151d;
+}
+
+.btn-primary:hover {
+  background: #d9b25f;
+  border-color: #d9b25f;
+}
+
+.btn-ghost {
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.btn-ghost:hover {
+  border-color: var(--text-muted);
+}
+
+/* ─────────────────────────── SECTION HEADERS ─────────────────────────── */
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 500;
+  margin: 0;
+}
+
+.section-title em {
+  color: var(--brass);
+  font-style: italic;
+}
+
+.section-sub {
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────── GALLERY GRID + SPOTLIGHT CARD ───────────────── */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40px 32px;
+  padding: 0 0 40px;
+}
+
+.painting-card {
+  position: relative;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  aspect-ratio: 4 / 5;
+  cursor: pointer;
+  /* spotlight coordinates, updated via JS on mousemove */
+  --mx: 50%;
+  --my: 40%;
+}
+
+.frame img,
+.frame .placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.frame:hover img,
+.frame:hover .placeholder {
+  transform: scale(1.045);
+}
+
+.frame::after {
+  /* the "track light" spotlight, follows the cursor */
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 260px at var(--mx) var(--my),
+    rgba(201, 162, 75, 0.22),
+    rgba(201, 162, 75, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.frame:hover::after {
+  opacity: 1;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--text-faint);
+  background: linear-gradient(155deg, #262330, #1a1820 60%);
+}
+
+.sold-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(20, 19, 26, 0.85);
+  border: 1px solid var(--velvet);
+  color: #d9a3a3;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+/* Museum wall-plaque label under each piece */
+.plaque {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.plaque-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0 0 4px;
+}
+
+.plaque-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--text-faint);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+
+.plaque-meta span::after {
+  content: '·';
+  margin-left: 10px;
+  color: var(--line);
+}
+
+.plaque-meta span:last-child::after {
+  content: '';
+  margin: 0;
+}
+
+/* ─────────────────────────── FILTER BAR ─────────────────────────── */
+
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.filter-pill {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-pill:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+.filter-pill.active {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: #17151d;
+}
+
+/* ─────────────────────────── DETAIL PAGE ─────────────────────────── */
+
+.detail {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 64px;
+  padding: 56px 0 100px;
+  align-items: start;
+}
+
+.detail-frame {
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.detail-frame img,
+.detail-frame .placeholder {
+  aspect-ratio: 4/5;
+}
+
+.detail-info {
+  position: sticky;
+  top: 110px;
+}
+
+.detail-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--brass);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+
+.detail-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  margin: 0 0 20px;
+}
+
+.detail-meta {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 2;
+  margin-bottom: 28px;
+  border-left: 2px solid var(--brass-dim);
+  padding-left: 16px;
+}
+
+.detail-desc {
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-faint);
+  font-size: 0.9rem;
+  margin-bottom: 32px;
+}
+
+.back-link:hover {
+  color: var(--text-muted);
+}
+
+/* ─────────────────────────── ABOUT PAGE ─────────────────────────── */
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 72px;
+  padding: 72px 0 100px;
+  align-items: start;
+}
+
+.about-portrait {
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: var(--panel);
+  position: sticky;
+  top: 110px;
+}
+
+.about-body p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 1.02rem;
+}
+
+.about-body h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 40px 0 16px;
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.timeline li {
+  display: flex;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.timeline .year {
+  font-family: var(--font-mono);
+  color: var(--brass);
+  min-width: 56px;
+  flex-shrink: 0;
+}
+
+.timeline .event {
+  color: var(--text-muted);
+}
+
+/* ─────────────────────────── CONTACT PAGE ─────────────────────────── */
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+  padding: 72px 0 100px;
+}
+
+.contact-info h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 0 0 20px;
+}
+
+.contact-detail {
+  margin-bottom: 24px;
+}
+
+.contact-detail .label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 6px;
+}
+
+.contact-detail .value {
+  color: var(--text);
+  font-size: 1.02rem;
+}
+
+.form-field {
+  margin-bottom: 22px;
+}
+
+.form-field label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 8px;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  background: var(--wall-soft);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  color: var(--text);
+  padding: 13px 14px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--brass);
+  outline: none;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.form-note {
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+/* ─────────────────────────── RESPONSIVE ───────────────────────────
+   Three checkpoints: tablet (860px), phone (640px), small phone (400px).
+   Mobile-specific fixes: no horizontal scroll, full-width tap targets
+   (44px+), single-column grids, and the sticky side panels (detail info,
+   about portrait) drop back into normal document flow once there's no
+   room to sit alongside content.
+   ─────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 860px) {
+  .detail,
+  .about-layout,
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .detail-info,
+  .about-portrait {
+    position: static;
+  }
+
+  .about-portrait {
+    aspect-ratio: 16 / 10;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 69px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: fit-content;
+    max-height: calc(100vh - 69px);
+    overflow-y: auto;
+    background: var(--wall-soft);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    gap: 0;
+    display: none;
+    padding: 8px 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 16px 32px;
+    width: 100%;
+    display: block;
+    font-size: 1rem;
+  }
+
+  .nav-links a.active::after {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .gallery-grid {
+    gap: 32px 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .nav-inner {
+    padding: 16px 20px;
+  }
+
+  .brand {
+    font-size: 1.15rem;
+  }
+
+  .hero {
+    padding: 44px 0 36px;
+  }
+
+  .hero-title {
+    max-width: none;
+  }
+
+  .hero-lede {
+    max-width: none;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    justify-content: center;
+  }
+
+  .section-head {
+    align-items: flex-start;
+  }
+
+  .section-head .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* One painting per row reads better than an awkward squeeze at
+     phone widths, and keeps the spotlight effect (which is sized in
+     pixels) looking right. */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    margin: 0 -20px 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-pill {
+    flex-shrink: 0;
+  }
+
+  .btn {
+    padding: 14px 24px;
+  }
+
+  form .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline li {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .nav-inner {
+    padding: 14px 16px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 9vw, 2.6rem);
+  }
+
+  .plaque-meta {
+    font-size: 0.68rem;
+  }
+
+  .plaque-meta span::after {
+    margin-left: 8px;
+  }
+
+  .detail-meta {
+    padding-left: 12px;
+  }
+}
