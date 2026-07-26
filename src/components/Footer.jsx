@@ -60,7 +60,7 @@ export default function Footer() {
             </a>
           </li>
           <li>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="footer-link">
+            <a href="https://instagram.com/artistsredhasammu" target="_blank" rel="noreferrer" className="footer-link">
               <svg className="footer-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.6" />
                 <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="1.6" />

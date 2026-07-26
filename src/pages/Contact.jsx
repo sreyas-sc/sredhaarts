@@ -10,14 +10,10 @@ export default function Contact() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    // This is a static site, so there's no server to send the form to yet.
-    // The simplest fix: point this at a form backend like Formspree or
-    // Getform (free tiers exist) — swap this function for a fetch() POST
-    // to the endpoint they give you. Until then, this opens the visitor's
-    // email client with the message pre-filled.
+
     const subject = encodeURIComponent(`Inquiry from ${form.name || 'the gallery site'}`)
     const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`)
-    window.location.href = `mailto:hello@example.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:sredhas24@gmail.com?subject=${subject}&body=${body}`
     setSent(true)
   }
 
@@ -32,7 +28,7 @@ export default function Contact() {
 
           <div className="contact-detail">
             <div className="label">Email</div>
-            <div className="value">hello@example.com</div>
+            <div className="value">sredhas24@gmail.com</div>
           </div>
           <div className="contact-detail">
             <div className="label">Studio</div>
@@ -77,7 +73,7 @@ export default function Contact() {
           {sent && (
             <p className="form-note">
               Opening your email client now — if nothing happened, write directly to
-              hello@example.com.
+              sredhas24@gmail.com.
             </p>
           )}
         </form>
