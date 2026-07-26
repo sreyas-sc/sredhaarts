@@ -162,12 +162,12 @@ button {
 
 .footer-bloom {
   position: absolute;
-  right: -18px;
-  bottom: -18px;
-  width: 150px;
-  height: 150px;
+  right: -22px;
+  bottom: -22px;
+  width: 175px;
+  height: 175px;
   color: var(--brass);
-  opacity: 0.3;
+  opacity: 0.4;
   pointer-events: none;
   z-index: 0;
 }
@@ -230,8 +230,8 @@ button {
 /* Mobile */
 @media (max-width: 768px) {
     .footer-bloom {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
   }
 }
 

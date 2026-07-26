@@ -2,17 +2,44 @@ export default function Footer() {
   return (
     <footer className="footer">
       <span className="footer-bloom" aria-hidden="true">
-        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g stroke="currentColor" strokeWidth="1.2">
-            <ellipse cx="60" cy="34" rx="13" ry="23" transform="rotate(0 60 60)" />
-            <ellipse cx="60" cy="34" rx="13" ry="23" transform="rotate(72 60 60)" />
-            <ellipse cx="60" cy="34" rx="13" ry="23" transform="rotate(144 60 60)" />
-            <ellipse cx="60" cy="34" rx="13" ry="23" transform="rotate(216 60 60)" />
-            <ellipse cx="60" cy="34" rx="13" ry="23" transform="rotate(288 60 60)" />
-            <circle cx="60" cy="60" r="6" />
-          </g>
-        </svg>
-      </span>
+  <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="currentColor" strokeWidth="1.3" strokeLinecap="round">
+      {/* stem, curving up from the corner */}
+      <path d="M60,58 C50,80 95,95 120,115 C132,125 138,138 140,150" />
+
+      {/* two small leaves along the stem */}
+      <g transform="translate(88,96) rotate(35)">
+        <path d="M0,0 C6,-6 16,-6 22,0 C16,6 6,6 0,0 Z" />
+      </g>
+      <g transform="translate(118,122) rotate(145) scale(-1,1)">
+        <path d="M0,0 C6,-6 16,-6 22,0 C16,6 6,6 0,0 Z" />
+      </g>
+
+      {/* the bloom, five slightly irregular petals for a hand-drawn feel */}
+      <g transform="translate(60,55)">
+        <g transform="rotate(-8) scale(1.05)">
+          <path d="M0,-2 C4,-10 8,-22 3,-36 C1,-39 -1,-39 -3,-36 C-8,-22 -4,-10 0,-2 Z" />
+        </g>
+        <g transform="rotate(64) scale(0.92)">
+          <path d="M0,-2 C4,-10 8,-22 3,-36 C1,-39 -1,-39 -3,-36 C-8,-22 -4,-10 0,-2 Z" />
+        </g>
+        <g transform="rotate(138)">
+          <path d="M0,-2 C4,-10 8,-22 3,-36 C1,-39 -1,-39 -3,-36 C-8,-22 -4,-10 0,-2 Z" />
+        </g>
+        <g transform="rotate(212) scale(0.97)">
+          <path d="M0,-2 C4,-10 8,-22 3,-36 C1,-39 -1,-39 -3,-36 C-8,-22 -4,-10 0,-2 Z" />
+        </g>
+        <g transform="rotate(288) scale(1.03)">
+          <path d="M0,-2 C4,-10 8,-22 3,-36 C1,-39 -1,-39 -3,-36 C-8,-22 -4,-10 0,-2 Z" />
+        </g>
+
+        {/* center and a few fine stamen lines */}
+        <circle cx="0" cy="0" r="3.2" strokeWidth="1.1" />
+        <path d="M0,0 L6,-6 M0,0 L8,3 M0,0 L-3,8 M0,0 L-7,-4" strokeWidth="0.8" />
+      </g>
+    </g>
+  </svg>
+</span>
 
       <div className="container footer-inner">
         <div className="footer-brand">
