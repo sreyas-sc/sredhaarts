@@ -242,6 +242,21 @@ button {
   border-color: #d9b25f;
 }
 
+
+/* Mobile */
+@media (max-width: 768px) {
+  .btn-primary {
+    justify-content: center;
+    font-size: 14px;
+    padding: 12px 18px;
+    width: 100%;       /* Optional: full-width button */
+    max-width: 320px;  /* Prevents it becoming too wide */
+  }
+}
+
+
+
+
 .btn-ghost {
   color: var(--text);
   border-color: var(--line);
@@ -249,6 +264,16 @@ button {
 
 .btn-ghost:hover {
   border-color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .btn-ghost {
+    justify-content: center;
+    font-size: 14px;
+    padding: 12px 18px;
+    width: 100%;       
+    max-width: 320px; 
+  }
 }
 
 /* ─────────────────────────── SECTION HEADERS ─────────────────────────── */
@@ -260,6 +285,26 @@ button {
   gap: 24px;
   margin-bottom: 40px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .section-head {
+    justify-content: center;
+    font-size: 14px;
+    padding: 12px 18px;
+    width: 100%;       
+    max-width: 320px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    justify-content: center;
+    font-size: 14px;
+    padding: 12px 18px;
+    width: 100%;       
+    max-width: 320px; 
+  }
 }
 
 .section-title {
@@ -740,12 +785,13 @@ button {
 
   .hero-actions {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
 
   .hero-actions .btn {
     justify-content: center;
   }
+  
 
   .section-head {
     align-items: flex-start;
