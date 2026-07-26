@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import IntroOverlay from './components/IntroOverlay'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -11,6 +12,7 @@ import NotFound from './pages/NotFound'
 export default function App() {
   return (
     <>
+      <IntroOverlay />
       <Navbar />
       <main>
         <Routes>

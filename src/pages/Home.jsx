@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import paintings from '../data/paintings'
 import PaintingCard from '../components/PaintingCard'
+import LightMotes from '../components/LightMotes'
 
 export default function Home() {
   const featured = paintings.filter((p) => p.featured)
@@ -8,6 +9,7 @@ export default function Home() {
   return (
     <>
       <section className="hero container">
+         <LightMotes />
         <p className="hero-eyebrow">Original paintings · Est. 2021</p>
         <h1 className="hero-title">Small rooms, quiet light, and the odd stretch of water.</h1>
         <p className="hero-lede">
