@@ -3,15 +3,15 @@ import { useMemo } from 'react'
 // A handful of faint brass motes drifting up through the hero, like dust
 // caught in a shaft of gallery light. Purely decorative (aria-hidden),
 // randomized once per mount so they don't look mechanically identical.
-export default function LightMotes({ count = 9 }) {
+export default function LightMotes({ count = 17 }) {
   const motes = useMemo(
     () =>
       Array.from({ length: count }, (_, i) => ({
         id: i,
         left: Math.round(Math.random() * 100),
-        delay: (Math.random() * 9).toFixed(2),
-        duration: (12 + Math.random() * 10).toFixed(2),
-        size: (1.5 + Math.random() * 2).toFixed(1),
+        delay: (Math.random() * 12).toFixed(2),
+        duration: (12 + Math.random() * 14).toFixed(2),
+        size: (1.5 + Math.random() * 4).toFixed(1),
       })),
     [count]
   )

@@ -760,6 +760,31 @@ button {
   animation-iteration-count: infinite;
 }
 
+/* ---------------------sparkle effect--------------*/
+.sparkle-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff6df 0%, var(--brass) 45%, rgba(201, 162, 75, 0) 75%);
+  box-shadow: 0 0 8px 1px rgba(201, 162, 75, 0.6);
+  transform: translate(-50%, -50%) scale(0);
+  animation: sparkle-pop 0.7s ease-out forwards;
+}
+
+@keyframes sparkle-pop {
+  0% { transform: translate(-50%, -50%) scale(0) rotate(var(--rotate)); opacity: 1; }
+  35% { transform: translate(calc(-50% + var(--drift-x)), calc(-50% - 14px)) scale(1) rotate(var(--rotate)); opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--drift-x)), calc(-50% - 38px)) scale(0.25) rotate(var(--rotate)); opacity: 0; }
+}
+
+
 @keyframes mote-drift {
   0% { transform: translateY(0) translateX(0); opacity: 0; }
   8% { opacity: 0.55; }
