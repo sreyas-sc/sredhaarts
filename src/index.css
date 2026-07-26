@@ -652,10 +652,36 @@ button {
   top: 110px;
 }
 
+.about-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .about-body p {
   color: var(--text-muted);
   line-height: 1.8;
   font-size: 1.02rem;
+}
+
+.about-portrait {
+  aspect-ratio: 4 / 5;
+}
+
+@media (max-width: 860px) {
+  .about-portrait {
+    aspect-ratio: auto;
+    /* height: 480px; */
+    aspect-ratio: 5 / 7;
+  }
+
+.about-portrait img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: contain; */
+  object-position: center top;
+}
 }
 
 .about-body h2 {
@@ -855,13 +881,6 @@ button {
   .hero-eyebrow, .hero-title, .hero-lede, .hero-actions { animation: none; }
 }
 
-/* ─────────────────────────── RESPONSIVE ───────────────────────────
-   Three checkpoints: tablet (860px), phone (640px), small phone (400px).
-   Mobile-specific fixes: no horizontal scroll, full-width tap targets
-   (44px+), single-column grids, and the sticky side panels (detail info,
-   about portrait) drop back into normal document flow once there's no
-   room to sit alongside content.
-   ─────────────────────────────────────────────────────────────────── */
 
 @media (max-width: 860px) {
   .detail,

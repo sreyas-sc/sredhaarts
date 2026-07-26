@@ -1,11 +1,11 @@
+import Portrait from "../assets/paintings/sredhaProfileImg.jpg";
+
 export default function About() {
   return (
     <section className="container">
       <div className="about-layout">
         <div className="about-portrait">
-          {/* Replace this with your own portrait: drop a file in
-              src/assets/paintings/ and swap the placeholder below
-              for <img src={...} alt="Portrait of the artist" /> */}
+          <img src={Portrait} alt="Portrait of the artist" /> 
           <div className="placeholder" style={{ height: '100%' }}>
             Your portrait here
           </div>
